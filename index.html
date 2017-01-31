@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map, #schoolInfo {
+            height: 100%;
+            min-width: 48%;
+            width: auto;
+            position: relative;
+            margin: 8px;
+        }
+        #map {
+            float: left;
+        }
+        #schoolInfo{
+            float: right;
+        }
+        @media (max-width: 850px){
+            #map {
+                min-width: 100%;
+            }
+            #schoolInfo {
+                min-width: 100%;
+            }
+        }
+        #schoolPlaceholder {
+            display: inline;
+            position: absolute;
+            top: 25%;
+            height: 100%
+        }
+        #schoolFocus {
+            display: none;
+            height: 100%
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="schoolInfo">
+        <div id="schoolPlaceholder"><p>Click a school for more information!</p></div>
+        <div id="schoolFocus">School info shows up here!</div>
+        
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/mapdash.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeI-oKN7u5iIn6EtbSeXiXV9hcbgQkHxY&callback=main"></script>
+</body>
+
+</html>
+
+
+
+</html>
