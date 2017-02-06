@@ -10,14 +10,14 @@ var pc;
 // called on completing google maps API. The launch point for any other function.
 function main() {
     colors = [
-'#ff5922', '#ff5b22', '#ff5d22', '#ff6023', '#ff6123', '#ff6323', '#ff6623', '#ff6724', '#ff6924', '#ff6b24', '#ff6d24', '#ff6f24', '#ff7125', '#ff7125', '#ff7425', '#ff7625', '#ff7726', '#ff7826', '#ff7a26', '#ff7d26', '#ff7e26', '#ff7f27', '#ff8127', '#ff8227', '#ff8527', '#ff8527', '#ff8728', '#ff8828', '#ff8a28', '#ff8c28', '#ff8d29', '#ff8e29', '#ff9129', '#ff9129', '#ff932a', '#ff942a', '#ff962a', '#ff972a', '#ff9a2b', '#ff9a2b', '#ff9d2b', '#ff9e2b', '#ff9f2c', '#ffa02c', '#ffa12c', '#ffa42c', '#ffa52d', '#ffa72d', '#ffa72d', '#ffa92d', '#ffab2e', '#ffab2e', '#ffad2e', '#ffaf2e', '#ffb02f', '#ffb12f', '#ffb32f', '#ffb32f', '#ffb530', '#ffb730', '#ffb830', '#ffba30', '#ffba31', '#ffbc31', '#ffbd31', '#ffbf31', '#ffc032', '#ffc132', '#ffc332', '#ffc332', '#ffc533', '#ffc733', '#ffc833', '#ffc933', '#ffcb34', '#ffcb34', '#ffcd34', '#ffce35', '#ffd035', '#ffd035', '#ffd235', '#ffd436', '#ffd536', '#ffd536', '#ffd636', '#ffd837', '#ffda37', '#ffdb37', '#ffdc38', '#ffde38', '#ffde38', '#ffe038', '#ffe139', '#ffe339', '#ffe339', '#ffe43a', '#ffe63a', '#ffe83a', '#ffe83a', '#ffe93b', '#ffeb3b'
+'#6dfdcf','#6cfbc8','#6cf9c1','#6bf7ba','#6af5b3','#68f3ac','#67f1a5','#66ee9e','#64ec97','#62ea90','#60e889','#5ee682','#5ce47b','#5ae273','#58e06c','#55de65','#52dc5d','#4fda55','#4cd84d','#49d645','#45d43c','#41d232','#3dd027','#38ce19','#33cc00', '#42ce00','#4fd100','#5ad300','#65d500','#6ed700','#77da00','#80dc00','#88de00','#91e000','#99e200','#a1e500','#a8e700','#b0e900','#b7eb00','#bfed00','#c6ef00','#cdf100','#d4f300','#dcf500','#e3f700','#eaf900','#f1fb00','#f8fd00','#ffff00', '#fffb00','#fff700','#fff300','#ffee00','#ffea00','#ffe600','#ffe200','#ffde00','#ffda00','#ffd500','#ffd100','#ffcd00','#ffc900','#ffc500','#ffc000','#ffbc00','#ffb800','#ffb300','#ffaf00','#ffab00','#ffa600','#ffa200','#ff9d00','#ff9900', '#ff9600','#ff9200','#ff8f00','#ff8b00','#ff8800','#ff8400','#ff8000','#ff7d00','#ff7900','#ff7500','#ff7100','#ff6d00','#ff6900','#ff6500','#ff6100','#ff5c00','#ff5700','#ff5300','#ff4d00','#ff4800','#ff4200','#ff3c00','#ff3500','#ff2d00','#ff2400','#ff1700','#ff0000'
     ];
     centerNZ = {
-        lat: -41.5,
+        lat: -41.0,
         lng: 172.8333
     };
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 6,
+        zoom: 5,
         center: centerNZ
     });
 
@@ -48,25 +48,6 @@ function PageController() {
     }
 }
 
-
-
-/* getCircle returns a circle who's color is determined by the magnitude */
-function getCircle(magnitude) {
-
-    var CircUtil = new ColorUtil();
-
-    return {
-        path: google.maps.SymbolPath.CIRCLE,
-        fillColor: CircUtil.getCircleColor(magnitude),
-        fillOpacity: CircUtil.getCircleOpacity(magnitude),
-        scale: 10,
-        strokeColor: 'white',
-        strokeWeight: .5
-    };
-
-
-}
-
 function effFeedCallback(results) {
     results.forEach(dataToMapHandler);
     setHandlers();
@@ -94,21 +75,43 @@ function effFeedCallback(results) {
     function setMapStyle() {
         map.data.setStyle(function (feature) {
             var performance = feature.getProperty('perf');
-            //if (feature.getProperty('perf') > 100) {
-            console.log(feature.getProperty('name') + ": " + performance + '%')
-            console.log(colors[Math.trunc(performance)])
-                // }
-
+            if (performance <= 0 || performance > 100) {
+                console.warn("Irregular reading: " + feature.getProperty('name') + ": " + performance + '%')
+            }
             return {
                 icon: getCircle(performance)
             };
         });
     }
-    function setHandlers(){
-        map.data.addListener('click', function( event ) {
-            console.log("clicked: " + event.feature.getProperty('name'));
-        })
+
+    function setHandlers() {
+        map.data.addListener('click', markerHandler);
     }
+
+    /* Handler for data on the map */
+    function markerHandler(event) {
+        var ft = event.feature;
+        document.getElementById('schoolInfo').innerText =
+            ft.getId() + " - " + ft.getProperty('name') + ": " + ft.getProperty('perf') + '%';
+    }
+}
+
+
+/* getCircle returns a circle who's color is determined by the magnitude */
+function getCircle(magnitude) {
+
+    var CircUtil = new ColorUtil();
+
+    return {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: CircUtil.getCircleColor(magnitude),
+        fillOpacity: CircUtil.getCircleOpacity(magnitude),
+        scale: 10,
+        strokeColor: 'white',
+        strokeWeight: .5
+    };
+
+
 }
 
 function ColorUtil() {
@@ -127,7 +130,7 @@ function ColorUtil() {
     this.getCircleOpacity = function getCircleOpacity(x) {
         x = Math.trunc(x);
         if (x < 1 || x > 100) {
-            return 0.0;
+            return 0.2;
         }
         return 0.8;
     }

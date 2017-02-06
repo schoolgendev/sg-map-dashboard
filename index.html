@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Schoolgen Map Dashboard</title>
     <style>
         /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -18,7 +19,7 @@
         #schoolInfo{
             float: right;
         }
-        @media (max-width: 850px){
+        @media (max-width: 845px){
             #map {
                 min-width: 100%;
             }
@@ -33,7 +34,7 @@
             height: 100%
         }
         #schoolFocus {
-            display: none;
+            display: inline;
             height: 100%
         }
         /* Optional: Makes the sample page fill the window. */
@@ -43,16 +44,21 @@
             margin: 0;
             padding: 0;
         }
+        .row-elem {
+            margin: 10px;
+            height: 50%;
+        }
 
     </style>
 </head>
 
 <body>
-    <div id="map"></div>
-    <div id="schoolInfo">
-        <div id="schoolPlaceholder"><p>Click a school for more information!</p></div>
-        <div id="schoolFocus">School info shows up here!</div>
-        
+    <div class="row-elem">
+        <div id="map"></div>
+        <div id="schoolInfo">
+            <div id="schoolPlaceholder"><p>Click a school for more information!</p></div>
+            <div id="schoolFocus">School info shows up here!</div>
+        </div>
     </div>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="js/mapdash.js"></script>
