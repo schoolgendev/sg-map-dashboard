@@ -3,61 +3,16 @@
 
 <head>
     <title>Schoolgen Map Dashboard</title>
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-        #map, #schoolInfo {
-            height: 100%;
-            min-width: 48%;
-            width: auto;
-            position: relative;
-            margin: 8px;
-        }
-        #map {
-            float: left;
-        }
-        #schoolInfo{
-            float: right;
-        }
-        @media (max-width: 845px){
-            #map {
-                min-width: 100%;
-            }
-            #schoolInfo {
-                min-width: 100%;
-            }
-        }
-        #schoolPlaceholder {
-            display: inline;
-            position: absolute;
-            top: 25%;
-            height: 100%
-        }
-        #schoolFocus {
-            display: inline;
-            height: 100%
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        .row-elem {
-            margin: 10px;
-            height: 50%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="css/skeleton.css" type="text/css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
 </head>
 
 <body>
     <div class="row-elem">
-        <div id="map"></div>
-        <div id="schoolInfo">
-            <div id="schoolPlaceholder"><p>Click a school for more information!</p></div>
-            <div id="schoolFocus">School info shows up here!</div>
+        <div class="map-info" id="map"></div>
+        <div class="map-info" id="schoolInfo">
+            <p>hello</p>
         </div>
     </div>
     <script src="http://d3js.org/d3.v3.min.js"></script>
