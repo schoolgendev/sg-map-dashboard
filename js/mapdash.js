@@ -91,7 +91,7 @@ function effFeedCallback(results) {
     /* Handler for data on the map */
     function markerHandler(event) {
         var ft = event.feature;
-        document.getElementById('schoolInfo').innerText =
+        document.getElementById('school-name').innerText =
             ft.getId() + " - " + ft.getProperty('name') + ": " + ft.getProperty('perf') + '%';
     }
 }
@@ -110,8 +110,6 @@ function getCircle(magnitude) {
         strokeColor: 'white',
         strokeWeight: .5
     };
-
-
 }
 
 function ColorUtil() {
