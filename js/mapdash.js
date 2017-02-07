@@ -16,348 +16,514 @@ function main() {
     ];
     schoolImgs = [
         {
-            node: 127
-        }
-,
-        {
-            node: 128
-        }
-,
-        {
-            node: 129
-        }
-,
-        {
-            node: 130
-        }
-,
-        {
-            node: 132
-        }
-,
-        {
-            node: 134
-        }
-,
-        {
-            node: 135
-        }
-,
-        {
-            node: 136
-        }
-,
-        {
-            node: 138
-        }
-,
-        {
-            node: 139
-        }
-,
-        {
-            node: 141
-        }
-,
-        {
-            node: 142
-        }
-,
-        {
-            node: 143
-        }
-,
-        {
-            node: 144
-        }
-,
-        {
-            node: 145
-        }
-,
-        {
-            node: 147
-        }
-,
-        {
-            node: 148
-        }
-,
-        {
-            node: 155
-        }
-,
-        {
-            node: 156
-        }
-,
-        {
-            node: 157
-        }
-,
-        {
-            node: 158
-        }
-,
-        {
-            node: 159
-        }
-,
-        {
-            node: 160
-        }
-,
-        {
-            node: 161
-        }
-,
-        {
-            node: 162
-        }
-,
-        {
-            node: 163
-        }
-,
-        {
-            node: 164
-        }
-,
-        {
-            node: 168
-        }
-,
-        {
-            node: 170
-        }
-,
-        {
-            node: 201
-        }
-,
-        {
-            node: 202
-        }
-,
-        {
-            node: 203
-        }
-,
-        {
-            node: 204
-        }
-,
-        {
-            node: 205
-        }
-,
-        {
-            node: 206
-        }
-,
-        {
-            node: 207
-        }
-,
-        {
-            node: 208
-        }
-,
-        {
-            node: 1639
-        }
-,
-        {
-            node: 1640
-        }
-,
-        {
-            node: 1643
-        }
-,
-        {
-            node: 1644
-        }
-,
-        {
-            node: 1650
-        }
-,
-        {
-            node: 1653
-        }
-,
-        {
-            node: 1654
-        }
-,
-        {
-            node: 1655
-        }
-,
-        {
-            node: 1656
-        }
-,
-        {
-            node: 1657
-        }
-,
-        {
-            node: 1658
-        }
-,
-        {
-            node: 1660
-        }
-,
-        {
-            node: 1661
-        }
-,
-        {
-            node: 1662
-        }
-,
-        {
-            node: 1663
-        }
-,
-        {
-            node: 1665
-        }
-,
-        {
-            node: 1666
-        }
-,
-        {
-            node: 1667
-        }
-,
-        {
-            node: 1669
-        }
-,
-        {
-            node: 1670
-        }
-,
-        {
-            node: 1671
-        }
-,
-        {
-            node: 1672
-        }
-,
-        {
-            node: 1673
-        }
-,
-        {
-            node: 1677
-        }
-,
-        {
-            node: 1678
-        }
-,
-        {
-            node: 1679
-        }
-,
-        {
-            node: 1680
-        }
-,
-        {
-            node: 1681
-        }
-,
-        {
-            node: 1682
-        }
-,
-        {
-            node: 1683
-        }
-,
-        {
-            node: 1684
-        }
-,
-        {
-            node: 1685
-        }
-,
-        {
-            node: 1687
-        }
-,
-        {
-            node: 1688
-        }
-,
-        {
-            node: 1689
-        }
-,
-        {
-            node: 1690
-        }
-,
-        {
-            node: 1691
-        }
-,
-        {
-            node: 1692
-        }
-,
-        {
-            node: 1693
-        }
-,
-        {
-            node: 1694
-        }
-,
-        {
-            node: 1695
-        }
-,
-        {
-            node: 1697
-        }
-,
-        {
-            node: 1698
-        }
-,
-        {
-            node: 1699
-        }
-,
-        {
-            node: 1700
-        }
-,
-        {
-            node: 1701
-        }
-,
-        {
-            node: 1702
-        }
-,
-        {
-            node: 1703
-        }
-,
-        {
-            node: 1704
-        }]
+            node: 127,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Westlake Girls High School"
+        },
+
+        {
+            node: 128,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Northcote College"
+        },
+
+        {
+            node: 129,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Greenhithe Primary School"
+        },
+
+        {
+            node: 130,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Tirimoana Primary School"
+        },
+
+        {
+            node: 132,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Silverdale Primary School"
+        },
+
+        {
+            node: 134,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Henderson Valley Primary School"
+        },
+
+        {
+            node: 135,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Glendowie College"
+        },
+
+        {
+            node: 136,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Fairfield College"
+        },
+
+        {
+            node: 138,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Vardon Primary School"
+        },
+
+        {
+            node: 139,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Forest Lake Primary School, Hamilton"
+        },
+
+        {
+            node: 141,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Paul's Collegiate"
+        },
+
+        {
+            node: 142,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Peter Chanel Catholic School"
+        },
+
+        {
+            node: 143,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Hamilton Girls High School"
+        },
+
+        {
+            node: 144,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Maeroa Intermediate"
+        },
+
+        {
+            node: 145,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Raglan Area School"
+        },
+
+        {
+            node: 147,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Te Kowhai School"
+        },
+
+        {
+            node: 148,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Mercury Bay Area School"
+        },
+
+        {
+            node: 155,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Raphael House, Rudolf Steiner School"
+        },
+
+        {
+            node: 156,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Eastern Hutt School"
+        },
+
+        {
+            node: 157,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Wadestown School"
+        },
+
+        {
+            node: 158,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Paraparaumu College"
+        },
+
+        {
+            node: 159,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Muritai School"
+        },
+
+        {
+            node: 160,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Napier Intermediate School"
+        },
+
+        {
+            node: 161,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Douglas Park School"
+        },
+
+        {
+            node: 162,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Clifton Terrace Model School"
+        },
+
+        {
+            node: 163,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Paremata School"
+        },
+
+        {
+            node: 164,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Plateau School"
+        },
+
+        {
+            node: 168,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Pukehou School"
+        },
+
+        {
+            node: 170,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Hastings Intermediate School"
+        },
+
+        {
+            node: 201,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Aokautere School"
+        },
+
+        {
+            node: 202,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Awahou School"
+        },
+
+        {
+            node: 203,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Hokowhitu School"
+        },
+
+        {
+            node: 204,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Kimbolton School"
+        },
+
+        {
+            node: 205,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Mount Biggs School"
+        },
+
+        {
+            node: 206,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Newbury School"
+        },
+
+        {
+            node: 207,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Anthony's Primary - Primary Array"
+        },
+
+        {
+            node: 208,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Johns Hill School"
+        },
+
+        {
+            node: 1639,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Lake Tekapo School"
+        },
+
+        {
+            node: 1640,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Middleton Grange School"
+        },
+
+        {
+            node: 1643,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Banks Avenue School"
+        },
+
+        {
+            node: 1644,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Sumner School"
+        },
+
+        {
+            node: 1650,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Mangakahia Area School"
+        },
+
+        {
+            node: 1653,
+            imgURL: "img/placeholder-01.jpg",
+            name: "James Street School"
+        },
+
+        {
+            node: 1654,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Stanley Bay School"
+        },
+
+        {
+            node: 1655,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Anthony's Primary - Secondary Array "
+        },
+
+        {
+            node: 1656,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Te Kura O Waikaremoana"
+        },
+
+        {
+            node: 1657,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Takapuna Normal Intermediate A"
+        },
+
+        {
+            node: 1658,
+            imgURL: "img/placeholder-01.jpg",
+            name: "May Road School"
+        },
+
+        {
+            node: 1660,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Temuka Primary School"
+        },
+
+        {
+            node: 1661,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Te Aro School"
+        },
+
+        {
+            node: 1662,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Clifton Terrace Model School"
+        },
+
+        {
+            node: 1663,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Amesbury School"
+        },
+
+        {
+            node: 1665,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Bayswater Primary School"
+        },
+
+        {
+            node: 1666,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Northland School"
+        },
+
+        {
+            node: 1667,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Newlands Intermediate School"
+        },
+
+        {
+            node: 1669,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Hampton Hill School"
+        },
+
+        {
+            node: 1670,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Thorndon Primary School"
+        },
+
+        {
+            node: 1671,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Paparangi School"
+        },
+
+        {
+            node: 1672,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Ridgway School"
+        },
+
+        {
+            node: 1673,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Geraldine Primary School"
+        },
+
+        {
+            node: 1677,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Vauxhall School"
+        },
+
+        {
+            node: 1678,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Owhiro Bay School"
+        },
+
+        {
+            node: 1679,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Churton Park"
+        },
+
+        {
+            node: 1680,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Brooklyn Primary School"
+        },
+
+        {
+            node: 1681,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Houghton Valley School"
+        },
+
+        {
+            node: 1682,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Birkdale Intermediate School- 4kW"
+        },
+
+        {
+            node: 1683,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Remuera Intermediate School"
+        },
+
+        {
+            node: 1684,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Wesley Intermediate School"
+        },
+
+        {
+            node: 1685,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Belmont Primary School"
+        },
+
+        {
+            node: 1687,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Winchester Rural School"
+        },
+
+        {
+            node: 1688,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Joseph's School - Temuka"
+        },
+
+        {
+            node: 1689,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Woodbury School"
+        },
+
+        {
+            node: 1690,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Russell School"
+        },
+
+        {
+            node: 1691,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Anthony’s School, Seatoun"
+        },
+
+        {
+            node: 1692,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Arowhenua Maori School"
+        },
+
+        {
+            node: 1693,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Milford School"
+        },
+
+        {
+            node: 1694,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Takapuna Normal Intermediate B"
+        },
+
+        {
+            node: 1695,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Benedicts"
+        },
+
+        {
+            node: 1697,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Matangi School"
+        },
+
+        {
+            node: 1698,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Rawhiti Primary"
+        },
+
+        {
+            node: 1699,
+            imgURL: "img/placeholder-01.jpg",
+            name: "West Rolleston Primary"
+        },
+
+        {
+            node: 1700,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Te Rakaumanga, Huntly"
+        },
+
+        {
+            node: 1701,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Lincoln Primary"
+        },
+
+        {
+            node: 1703,
+            imgURL: "img/placeholder-01.jpg",
+            name: "St Leo Primary"
+        },
+
+        {
+            node: 1704,
+            imgURL: "img/placeholder-01.jpg",
+            name: "Otonga Primary"
+        }];
     centerNZ = {
         lat: -41.0,
         lng: 172.8333
@@ -498,8 +664,8 @@ function configTop10() {
     console.log("config top 10")
     var featureArray = [];
     // put in array
-    map.data.forEach(function getTop10(feature) {
-        featureArray.push(feature);
+    map.data.forEach(function getTop10(ft) {
+        featureArray.push(ft);
     });
     // sort array
     featureArray.sort(function comparator(ft1, ft2) {
