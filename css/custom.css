@@ -1,12 +1,40 @@
-#map {
-    height: 600px;
-}
 
 body {
+    height: 100%;
+    max-width: 1000px;
     margin: 8px;
-    background-color: #efebde;
+    background-color: white;
 }
 
-#map {
+#map, #school-info, #leaderboard {
+    background-color: #efebde;
+    height: 450px;
+    padding: 16px;
+}
 
+.centered {
+    text-align: center;
+}
+.centered img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+}
+
+
+
+.v-centered {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.v-start {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
