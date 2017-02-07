@@ -17,10 +17,12 @@
             </div>
             <div id="info-div" class="centered v-start" style="display: none">
                 <img id="school-img" src="img/school-01.jpg">
-                <p>Node ID: <span id="school-id"></span></p>
                 <h3 id="school-name"></h3>
                 <p id="array-size">Array size: <span id="school-array"></span></p>
-                <p>Current performance: <span id="school-eff"></span></p>
+                <p><span class="tooltip">Performance:
+                    <span id="school-eff"></span>*
+                    <span class="tooltiptext">Measures the average power over the last half hour of generation, compared to the maximum possible amount of power that could be generated.</span>
+                </span></p>
             </div>
         </div>
         <div class="four columns map-info" id="leaderboard">
@@ -40,7 +42,9 @@
             </ol>
         </div>
     </div>
-    <div id="append"></div>
+    <div class="row">
+        <div class="twelve columns" id="matrix"></div>
+    </div>
 
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="js/mapdash.js"></script>

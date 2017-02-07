@@ -8,7 +8,7 @@ body {
 
 #map, #school-info, #leaderboard {
     background-color: #efebde;
-    height: 450px;
+    height: 500px;
     padding: 16px;
 }
 
@@ -20,8 +20,6 @@ body {
     margin-right: auto;
     width: 250px;
 }
-
-
 
 .v-centered {
     height: 100%;
@@ -37,4 +35,31 @@ body {
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
+}
+
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: underline;
+
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: white;
+    opacity: 0.8;
+    font-size: 11px;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border: 1px solid grey;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

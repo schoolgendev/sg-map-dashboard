@@ -627,8 +627,7 @@ function effFeedCallback(results) {
                 // get rid of placeholder
                 document.getElementById('map-info-ph').style.display = "none";
                 // node id
-                document.getElementById('school-id').innerText =
-                    ft.getId();
+                console.log("ID clicked: " + ft.getId())
                 // name of school
                 document.getElementById('school-name').innerText =
                     ft.getProperty('name');
