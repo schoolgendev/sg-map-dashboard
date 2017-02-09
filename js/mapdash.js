@@ -745,6 +745,7 @@ function effFeedCallback(results) {
 function configTop10() {
     console.log("config top 10")
     var featureArray = [];
+    var ff = new FunctionFactory();
     // put in array
     map.data.forEach(function getTop10(ft) {
         featureArray.push(ft);
@@ -756,16 +757,33 @@ function configTop10() {
     // for the top 10 in the array:
     for (var i = 1; i <= 10; i++) {
         // throw elements onto the table
+        var elem = document.getElementById('top-10-' + i)
         var ft = featureArray[i - 1];
         ftName = ft.getProperty("name");
         ftPerf = ft.getProperty("perf");
         if (ftPerf > 100) {
             ftPerf = 100;
         }
-        document.getElementById('top-10-' + i).innerText =
-            ftName + ": " + ftPerf;
+        elem.innerText = ftName + ": " + ftPerf;
         // set handlers on list items
+        // get id, zoom to marker with id
+        elem.onclick = ff.getFunction(ft);
+    }
 
+
+    function FunctionFactory () {
+        this.getFunction = function getFunction (ft) {
+            return function () {
+                // get ft latlng
+                map.setCenter({
+                    lat: ft.getGeometry().get().lat(),
+                    lng: ft.getGeometry().get().lng()
+                });
+                map.setZoom(13);
+                // set map latlng to ft latlng
+                // set zoom to e.g. 12 or something
+            }
+        }
     }
 
 }
