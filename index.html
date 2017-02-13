@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/skeleton.css" type="text/css">
     <link rel="stylesheet" href="css/custom.css" type="text/css">
     <style>
-        a {
+        ol a {
             text-decoration: none;
             color: inherit;
         }
@@ -16,7 +16,14 @@
 
 <body>
     <div class="row">
-        <div class="four columns map-info" id="map"></div>
+        <div class="four columns map-info" >
+
+            <div id="map"></div>
+
+            <div id="color-div">
+                <img id="color-scale" src="img/colorscale.png">
+            </div>
+        </div>
         <div class="four columns map-info" id="school-info">
             <div class="centered v-centered" id="map-info-ph">
                 <p id="school-ph">Click a school to view information</p>

@@ -6,10 +6,23 @@ body {
     background-color: white;
 }
 
-#map, #school-info, #leaderboard {
+.map-info, #school-info, #leaderboard {
     background-color: #efebde;
     height: 500px;
     padding: 16px;
+}
+
+#map {
+    height: 90%;
+    margin-bottom: 15px;
+}
+#color-div {
+    height: 7%;
+}
+
+#color-scale {
+    line-height: 0.5;
+    margin: 0px;
 }
 
 .centered {
