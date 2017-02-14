@@ -722,42 +722,8 @@ function effFeedCallback(results) {
 
         function markerHandler(event) {
             var ft = event.feature;
-            replaceAllText(ft);
-            // display the div
-            document.getElementById('info-div').style.display = "flex";
+            focusSchool(ft);
 
-            function replaceAllText(ft) {
-                // get rid of placeholder
-                document.getElementById('map-info-ph').style.display = "none";
-                // node id
-                console.log("ID clicked: " + ft.getId())
-                // name of school
-                document.getElementById('school-name').innerText =
-                    ft.getProperty('name');
-                // set the src for image
-                setSchoolImg(ft.getId());
-                // set array size
-                if (ft.getProperty('array') === null) {
-                    document.getElementById('array-size').style.display = "none";
-                } else {
-                    document.getElementById('array-size').style.display = "block"
-                    document.getElementById('school-array').innerText =
-                        ft.getProperty('array');
-                }
-                // performance of school
-                var perf = ft.getProperty('perf');
-                if (perf > 100) {
-                    document.getElementById('school-eff').innerText =
-                        "100+%";
-                } else {
-                    document.getElementById('school-eff').innerText =
-                        perf + '%'
-                }
-            }
-
-            function setSchoolImg(nodeId) {
-                document.getElementById('school-img').src = "img/school-01.jpg";
-            }
         }
     }
 }
@@ -800,12 +766,45 @@ function configTop10() {
                     lng: ft.getGeometry().get().lng()
                 });
                 map.setZoom(13);
-                // set map latlng to ft latlng
-                // set zoom to e.g. 12 or something
+                focusSchool(ft);
             }
         }
     }
 
+}
+
+function focusSchool(ft) {
+    document.getElementById('map-info-ph').style.display = "none";  // kill placeholder
+    console.log("ID clicked: " + ft.getId());                       // get id
+    replacePanelText(ft);                                           // replace all text
+    document.getElementById('info-div').style.display = "flex";     // show new div
+
+    function replacePanelText (ft) {
+        document.getElementById('school-name').innerText =
+        ft.getProperty('name');
+        // set the src for image
+        setSchoolImg(ft.getId());
+        // set array size
+        if (ft.getProperty('array') === null) {
+            document.getElementById('array-size').style.display = "none";
+        } else {
+            document.getElementById('array-size').style.display = "block"
+            document.getElementById('school-array').innerText =
+                ft.getProperty('array');
+        }
+        // performance of school
+        var perf = ft.getProperty('perf');
+        if (perf > 100) {
+            document.getElementById('school-eff').innerText =
+                "100+%";
+        } else {
+            document.getElementById('school-eff').innerText =
+                perf + '%'
+        }
+    }
+    function setSchoolImg(nodeId) {
+        document.getElementById('school-img').src = "img/school-01.jpg";
+    }
 }
 
 /* getCircle returns a circle who's color is determined by the magnitude */
