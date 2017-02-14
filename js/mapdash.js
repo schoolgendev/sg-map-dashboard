@@ -3,9 +3,6 @@ var colors;     // Colours for the map markers x 100
 var schoolImgs; // pictures for different schools
 var centerNZ;   // Marker for center of nz
 var pc;         // Page controller object
-var efficiencyCallbackFinished = false;
-var statisticCallbackFinished = true;
-var finishedCallbacks = function (){ return efficiencyCallbackFinished && statisticCallbackFinished; }
 
 // called on completing google maps API. The launch point for any other function.
 function main() {
@@ -738,61 +735,68 @@ function main() {
 function PageController() {
     /* Makes data request and initializes data layer for the map */
     this.initMap = function initMap() {
-        efficiencyCallbackFinished = false;
-        //statisticCallbackFinished = false;
-        d3.json('http://api.schoolgen.co.nz/schools/', effFeedCallback) //efficiency data
-        d3.csv('https://docs.google.com/spreadsheets/d/1Gny4qhanMsESVdPBSqZWyWGPs7sAC-NG5Z13Dff3Azc/pub?gid=1777312824&single=true&output=csv', statisticCallback)
+        // first API call to schools
+        d3.json('http://api.schoolgen.co.nz/schools/', efficiencyCallback) //efficiency data
     }
     /* Makes data request for the efficiency matrix */
 }
 
-function effFeedCallback(results) {
+function efficiencyCallback(results) {
     results.forEach(dataToMapHandler);
-    efficiencyCallbackFinished = true;
-    if (finishedCallbacks()){
-        setHandlers();
-        setMapStyle();
-        configTop10();
+    // second call - data gathering
+    d3.csv('data/directiontiltlist.csv', statisticCallback);
+
+    function dataToMapHandler(v, i, a) {
+        if (v.Perf === 0) {
+            console.log("perf = 0 for " + v.Name);
+        }
+        map.data.add(createFeature(v));
+
+        function createFeature(v) {
+            var schoolName, schoolArray;
+            var regexKW = / - [0123456789. ]*k[wW]$/
+            var matchIndex = v.Name.search(regexKW);
+            if (matchIndex != -1) {
+                // do the replacements
+                schoolName = v.Name.substring(0, matchIndex);
+                schoolArray = v.Name.substring(matchIndex + 3);
+            } else {
+                schoolName = v.Name;
+                schoolArray = null;
+            }
+            // enter a new map feature
+            var mapFeature = new google.maps.Data.Feature({
+                geometry: {
+                    lat: v.Lat,
+                    lng: v.Lng,
+                },
+                id: v.ID,
+                properties: {
+                    perf: v.Perf,
+                    name: schoolName,
+                    array: schoolArray
+                }
+            });
+            return mapFeature;
+        }
     }
 }
 function statisticCallback(results){
-    console.log(results);
-}
+    // final handler
+    results.forEach(directionalToMapHandler)
+    setHandlers();
+    setMapStyle();
+    configTop10();
 
-
-function dataToMapHandler(v, i, a) {
-    if (v.Perf === 0) {
-        console.warn("perf = 0 for " + v.Name);
-        return;
-    }
-    map.data.add(createFeature(v));
-
-    function createFeature(v) {
-        var schoolName, schoolArray;
-        var regexKW = / - [0123456789. ]*k[wW]$/
-        var matchIndex = v.Name.search(regexKW);
-        if (matchIndex != -1) {
-            // do the replacements
-            schoolName = v.Name.substring(0, matchIndex);
-            schoolArray = v.Name.substring(matchIndex + 3);
-        } else {
-            schoolName = v.Name;
-            schoolArray = null;
+    function directionalToMapHandler(v, i, a){
+        // assume all features already in map
+        var nodeId = +v.ID;
+        var ft = map.data.getFeatureById(nodeId);
+        if (ft === undefined){
+            return;
         }
-        // enter a new map feature
-        var mapFeature = new google.maps.Data.Feature({
-            geometry: {
-                lat: v.Lat,
-                lng: v.Lng,
-            },
-            id: v.ID,
-            properties: {
-                perf: v.Perf,
-                name: schoolName,
-                array: schoolArray
-            }
-        });
-        return mapFeature;
+        ft.setProperty('altitude', v.Altitude);
+        ft.setProperty('azimuth', v.Azimuth);
     }
 }
 
@@ -814,7 +818,6 @@ function setHandlers() {
     function markerHandler(event) {
         var ft = event.feature;
         focusSchool(ft);
-
     }
 }
 
@@ -871,27 +874,26 @@ function focusSchool(ft) {
     document.getElementById('info-div').style.display = "flex";     // show new div
 
     function replacePanelText (ft) {
-        document.getElementById('school-name').innerText =
-        ft.getProperty('name');
-        // set the src for image
+        // set school name
+        document.getElementById('school-name').innerText = ft.getProperty('name');
+        // set school img
         setSchoolImg(ft.getId());
         // set array size
         if (ft.getProperty('array') === null) {
             document.getElementById('array-size').style.display = "none";
         } else {
             document.getElementById('array-size').style.display = "block"
-            document.getElementById('school-array').innerText =
-                ft.getProperty('array');
+            document.getElementById('school-array').innerText = ft.getProperty('array');
         }
-        // performance of school
+        // set performance
         var perf = ft.getProperty('perf');
         if (perf > 100) {
-            document.getElementById('school-eff').innerText =
-                "100+%";
+            document.getElementById('school-eff').innerText = "100+%";
         } else {
-            document.getElementById('school-eff').innerText =
-                perf + '%'
+            document.getElementById('school-eff').innerText = perf + '%'
         }
+        document.getElementById('direction').innerText = ft.getProperty('azimuth');
+        document.getElementById('tilt').innerText = ft.getProperty('altitude');
     }
     function setSchoolImg(nodeId) {
         document.getElementById('school-img').src = "img/school-01.jpg";
