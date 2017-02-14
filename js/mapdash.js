@@ -634,6 +634,95 @@ function main() {
         zoom: 5,
         center: centerNZ,
         streetViewControl: false,
+        styles: [
+          {
+            "featureType": "poi",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "geometry.fill",
+            "stylers": [
+              {
+                "visibility": "on"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "geometry.stroke",
+            "stylers": [
+              {
+                "visibility": "on"
+              }
+            ]
+          }
+        ]
     });
 
     // TODO: set up a matrix div
@@ -652,7 +741,7 @@ function PageController() {
         efficiencyCallbackFinished = false;
         //statisticCallbackFinished = false;
         d3.json('http://api.schoolgen.co.nz/schools/', effFeedCallback) //efficiency data
-       //d3.csv('https://docs.google.com/spreadsheets/d/1Gny4qhanMsESVdPBSqZWyWGPs7sAC-NG5Z13Dff3Azc/pub?gid=1777312824&single=true&output=csv', statisticCallback)
+        d3.csv('https://docs.google.com/spreadsheets/d/1Gny4qhanMsESVdPBSqZWyWGPs7sAC-NG5Z13Dff3Azc/pub?gid=1777312824&single=true&output=csv', statisticCallback)
     }
     /* Makes data request for the efficiency matrix */
 }
