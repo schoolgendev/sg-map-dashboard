@@ -749,6 +749,7 @@ function efficiencyCallback(results) {
     function dataToMapHandler(v, i, a) {
         if (v.Perf === 0) {
             console.log("perf = 0 for " + v.Name);
+            return; // this gets rid of grey spots on map
         }
         map.data.add(createFeature(v));
 
