@@ -6,7 +6,14 @@ body {
     background-color: white;
 }
 
-.map-info, #school-info, #leaderboard {
+.column,
+.columns {
+    margin-left: 2%;
+}
+
+.map-info,
+#school-info,
+#leaderboard {
     background-color: #efebde;
     height: 500px;
     padding: 16px;
