@@ -1,13 +1,11 @@
-// Google map object
-var map;
-// Colours for the map markers x 100
-var colors;
-// pictures for different schools
-var schoolImgs;
-// Marker for center of nz
-var centerNZ;
-// Page controller object
-var pc;
+var map;        // Google map object
+var colors;     // Colours for the map markers x 100
+var schoolImgs; // pictures for different schools
+var centerNZ;   // Marker for center of nz
+var pc;         // Page controller object
+var efficiencyCallbackFinished = false;
+var statisticCallbackFinished = true;
+var finishedCallbacks = function (){ return efficiencyCallbackFinished && statisticCallbackFinished; }
 
 // called on completing google maps API. The launch point for any other function.
 function main() {
@@ -33,7 +31,7 @@ function main() {
         '#ff5300', '#ff4d00', '#ff4800', '#ff4200', '#ff3c00',
         '#ff3500', '#ff2d00', '#ff2400', '#ff1700', '#ff0000'
     ];
-    schools = [
+    /*schools = [
         {
             node: 127,
             imgURL: "img/placeholder-01.jpg",
@@ -627,7 +625,7 @@ function main() {
             imgURL: "img/placeholder-01.jpg",
             URL: "",
             name: "Otonga Primary"
-        }];
+        }];*/
     centerNZ = {
         lat: -41.0,
         lng: 172.8333
@@ -646,85 +644,88 @@ function main() {
     // - data for the matrix
     // - data for the efficiency map
     pc.initMap();
-    pc.initMatrix();
 }
 
 function PageController() {
     /* Makes data request and initializes data layer for the map */
     this.initMap = function initMap() {
-            // make call for efficiency data
-            d3.json('http://api.schoolgen.co.nz/schools/', effFeedCallback)
-                // throw it on the map div
-        }
-        /* Makes data request for the efficiency matrix */
-    this.initMatrix = function initMatrix() {
-        // make call for matrix data
-        // throw data onto the matrix
+        efficiencyCallbackFinished = false;
+        //statisticCallbackFinished = false;
+        d3.json('http://api.schoolgen.co.nz/schools/', effFeedCallback) //efficiency data
+       //d3.csv('https://docs.google.com/spreadsheets/d/1Gny4qhanMsESVdPBSqZWyWGPs7sAC-NG5Z13Dff3Azc/pub?gid=1777312824&single=true&output=csv', statisticCallback)
     }
+    /* Makes data request for the efficiency matrix */
 }
 
 function effFeedCallback(results) {
     results.forEach(dataToMapHandler);
-    setHandlers();
-    setMapStyle();
-    configTop10();
-
-    function dataToMapHandler(v, i, a) {
-        if (v.Perf === 0) {
-            console.warn("perf = 0 for " + v.Name);
-            return;
-        }
-        map.data.add(newFeature(v));
-
-        function newFeature(v) {
-            var schoolName, schoolArray;
-            var regexKW = / - [0123456789. ]*k[wW]$/
-            var matchIndex = v.Name.search(regexKW);
-            if (matchIndex != -1) {
-                // do the replacements
-                schoolName = v.Name.substring(0, matchIndex);
-                schoolArray = v.Name.substring(matchIndex + 3);
-            } else {
-                schoolName = v.Name;
-                schoolArray = null;
-            }
-            // enter a new map feature
-            var mapFeature = new google.maps.Data.Feature({
-                geometry: {
-                    lat: v.Lat,
-                    lng: v.Lng,
-                },
-                id: v.ID,
-                properties: {
-                    perf: v.Perf,
-                    name: schoolName,
-                    array: schoolArray
-                }
-            });
-            return mapFeature;
-        }
+    efficiencyCallbackFinished = true;
+    if (finishedCallbacks()){
+        setHandlers();
+        setMapStyle();
+        configTop10();
     }
+}
+function statisticCallback(results){
+    console.log(results);
+}
 
-    function setMapStyle() {
-        map.data.setStyle(function (feature) {
-            var performance = feature.getProperty('perf');
-            if (performance <= 0 || performance > 100) {
-                console.warn("Irregular reading: " + feature.getProperty('name') + ": " + performance + '%')
+
+function dataToMapHandler(v, i, a) {
+    if (v.Perf === 0) {
+        console.warn("perf = 0 for " + v.Name);
+        return;
+    }
+    map.data.add(createFeature(v));
+
+    function createFeature(v) {
+        var schoolName, schoolArray;
+        var regexKW = / - [0123456789. ]*k[wW]$/
+        var matchIndex = v.Name.search(regexKW);
+        if (matchIndex != -1) {
+            // do the replacements
+            schoolName = v.Name.substring(0, matchIndex);
+            schoolArray = v.Name.substring(matchIndex + 3);
+        } else {
+            schoolName = v.Name;
+            schoolArray = null;
+        }
+        // enter a new map feature
+        var mapFeature = new google.maps.Data.Feature({
+            geometry: {
+                lat: v.Lat,
+                lng: v.Lng,
+            },
+            id: v.ID,
+            properties: {
+                perf: v.Perf,
+                name: schoolName,
+                array: schoolArray
             }
-            return {
-                icon: getCircle(performance)
-            };
         });
+        return mapFeature;
     }
+}
 
-    function setHandlers() {
-        map.data.addListener('click', markerHandler);
-
-        function markerHandler(event) {
-            var ft = event.feature;
-            focusSchool(ft);
-
+function setMapStyle() {
+    map.data.setStyle(function (feature) {
+        var performance = feature.getProperty('perf');
+        if (performance <= 0 || performance > 100) {
+            console.warn("Irregular reading: " + feature.getProperty('name') + ": " + performance + '%')
         }
+        return {
+            icon: getCircle(performance)
+        };
+    });
+}
+
+function setHandlers() {
+    map.data.addListener('click', markerHandler);
+
+    function markerHandler(event) {
+        var ft = event.feature;
+        focusSchool(ft);
+
     }
 }
 
@@ -755,6 +756,7 @@ function configTop10() {
         // get id, zoom to marker with id
         elem.onclick = ff.getFunction(ft);
     }
+    focusSchool(featureArray[0]); // default focus on first school
 
 
     function FunctionFactory () {
