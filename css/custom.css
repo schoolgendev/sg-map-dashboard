@@ -83,3 +83,13 @@ body {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+#sg-top-10 {
+    counter-reset: hash;
+    list-style-type: none;
+}
+
+li:before {
+    counter-increment: hash;
+    content: "#" counter(hash) ". ";
+}
