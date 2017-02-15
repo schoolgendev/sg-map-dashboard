@@ -28,14 +28,20 @@ function main() {
         '#ff5300', '#ff4d00', '#ff4800', '#ff4200', '#ff3c00',
         '#ff3500', '#ff2d00', '#ff2400', '#ff1700', '#ff0000'
     ];
+    // this is a variable for the center of nz, which the map defaults to
     centerNZ = {
         lat: -41.0,
         lng: 172.8333
     };
+    // main map object. This builds the actual map,
+    // but has no role in getting the data.
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 5,
         center: centerNZ,
         streetViewControl: false,
+        // these styles change what can be visible on the map.
+        // Currently it is set to disable landmark objects, highway signs etc,
+        //  while still visualizing their terrain (e.g. geometry.fill and .stroke are both on)
         styles: [
           {
             "featureType": "poi",
@@ -127,56 +133,89 @@ function main() {
         ]
     });
 
-    // TODO: set up a matrix div
-
     pc = new PageController();
 
-    // make JSON request for:
-    // - data for the matrix
-    // - data for the efficiency map
+    // this is a call to get the data for the map.
     pc.initMap();
 }
 
 function PageController() {
-    /* Makes data request and initializes data layer for the map */
     this.initMap = function initMap() {
-        // first API call to schools
-        d3.json('http://api.schoolgen.co.nz/schools/', efficiencyCallback) //efficiency data
+        /* So the page actually makes two requests. This is the first request,
+        which is a remote request to the schoolgen API for the efficiency data. */
+        d3.json('http://api.schoolgen.co.nz/schools/', efficiencyCallback)
     }
-    /* Makes data request for the efficiency matrix */
 }
 
+/* This callback runs when the API request has been completed.
+ That is to say, it doesn't run immediately when initMap() gets called.*/
 function efficiencyCallback(results) {
+
+    /* So, for each element in the results (i.e. what we got back from the API call),
+     we want to run dataToMapHandler. See the Mozilla Developer Network docs
+     for Array.prototype.forEach() for more info. */
     results.forEach(dataToMapHandler);
-    // second call - data gathering
+
+    /* This is the second request, which is a local request for the direction and tilt data. */
     d3.csv('data/directiontiltlist.csv', statisticCallback);
 
+    /* forEach calls a function with three arguments:
+    - the value of the element in the array (v)
+    - the index of that element (i)
+    - and the array itself (a)
+    In making a callback function for the forEach function,
+    we need to specify each of those three arguments.
+    (we can name them whatever we want though). */
     function dataToMapHandler(v, i, a) {
+        /* do not add grey nodes (nodes where perf = 0) to the map */
         if (v.Perf === 0) {
-            console.log("perf = 0 for " + v.Name);
-            return; // this gets rid of grey spots on map
+            /* log with a warning */
+            console.warn("perf = 0 for " + v.Name);
+            return;
         }
+        /* add everything else to the map */
         map.data.add(createFeature(v));
 
+        /* creates a new Google Map Feature. See https://developers.google.com/maps/documentation/javascript/reference#Data.Feature
+        for more info. */
         function createFeature(v) {
-            var schoolName, schoolArray;
+            var schoolName,
+                schoolArray;
+            /* This regex allows us to search for where in a string the " - 2 kWh" in the
+             school name occurs.
+             This regular expression specifies a part of a string which has " - "
+             followed by any number of digits, decimals, or spaces, followed by kwh or kWh,
+             followed by an end of string character.*/
             var regexKW = / - [0123456789. ]*k[wW]$/
+            /* Search the string for the regex and return the index where it starts... */
             var matchIndex = v.Name.search(regexKW);
+            /* If string.prototype.search() can't find it, it returns -1.
+             So any case where it doesn't return -1, we want to process as below*/
             if (matchIndex != -1) {
-                // do the replacements
+                // take substrings and assign to above variables
                 schoolName = v.Name.substring(0, matchIndex);
                 schoolArray = v.Name.substring(matchIndex + 3);
             } else {
+                // on a failutre to find the string, process as below
                 schoolName = v.Name;
                 schoolArray = null;
             }
-            // enter a new map feature
+            /* After setting name and array strings, we will
+             add a new Feature based on that data. Remember that v is the
+             value from the array of results. */
             var mapFeature = new google.maps.Data.Feature({
+                /* Geometry is where the feature is located */
                 geometry: {
                     lat: v.Lat,
                     lng: v.Lng,
                 },
+                /* id is a unique identifier for the feature.
+                 Here, I am using the nodeID.*/
                 id: v.ID,
+                /* properties is additional data for the feature.
+                 Here, we are storing the performance, name, and array size.
+                 Later on, after the second request, we will add azimuth and altitude
+                  to the properties object. */
                 properties: {
                     perf: v.Perf,
                     name: schoolName,
@@ -187,22 +226,44 @@ function efficiencyCallback(results) {
         }
     }
 }
+
+/* This callback runs when the second request completes (for the local file holding
+ tilt and direction data) */
 function statisticCallback(results){
-    // final handler
-    results.forEach(directionalToMapHandler)
+    /* Similar to what happens in the first callback, we call a function on
+    every row in the data table.*/
+    results.forEach(directionalToMapHandler);
+    /* Following this, we render the rest of the page. */
     setHandlers();
     setMapStyle();
     configTop10();
 
+    /* At this point (when we call this method) we can assume all features are in the map.
+    So we match up the data from the API and the data in the file using
+    the nodeIDs, which I am assuming shouldn't change*/
     function directionalToMapHandler(v, i, a){
-        // assume all features already in map
+        // get the feature
         var nodeId = +v.ID;
         var ft = map.data.getFeatureById(nodeId);
+        // if we can't find the feature, stop processing this data point
         if (ft === undefined){
             return;
         }
+        // otherwise we add the altitude and azimuth to the feature's properties
         ft.setProperty('altitude', v.Altitude);
         ft.setProperty('azimuth', v.Azimuth);
+    }
+}
+
+/* This sets a click handler on each circle on the map. */
+function setHandlers() {
+    map.data.addListener('click', markerHandler);
+
+    function markerHandler(event) {
+        console.log("hi")
+        var ft = event.feature;
+        /* See focusSchool() below to see what this does. */
+        focusSchool(ft);
     }
 }
 
@@ -216,15 +277,6 @@ function setMapStyle() {
             icon: getCircle(performance)
         };
     });
-}
-
-function setHandlers() {
-    map.data.addListener('click', markerHandler);
-
-    function markerHandler(event) {
-        var ft = event.feature;
-        focusSchool(ft);
-    }
 }
 
 function configTop10() {
