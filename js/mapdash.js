@@ -239,15 +239,20 @@ function configTop10() {
     featureArray.sort(function comparator(ft1, ft2) {
         return ft2.getProperty("perf") - ft1.getProperty("perf");
     });
+    var limit = 10
+    var offset = 0;
     // for the top 10 in the array:
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 1; i <= limit; i++) {
         // throw elements onto the table
-        var elem = document.getElementById('top-10-' + i)
+        var elem = document.getElementById('top-10-' + (i - offset));
         var ft = featureArray[i - 1];
         ftName = ft.getProperty("name");
         ftPerf = ft.getProperty("perf");
         if (ftPerf > 100) {
             ftPerf = 100;
+            limit ++;
+            offset ++;
+            continue;
         }
         elem.innerText = ftName + ": " + ftPerf;
         // set handlers on list items
