@@ -3,6 +3,7 @@ body {
     height: 100%;
     max-width: 1000px;
     margin: 8px;
+    /* This is the background color for the entire page */
     background-color: #fff6a9;
 }
 
@@ -12,6 +13,7 @@ body {
 }
 
 
+/* controls the white panel binding the three boxes together */
 .row {
     background-color: white;
     padding-top: 12px;
@@ -23,6 +25,7 @@ body {
 .map-info,
 #school-info,
 #leaderboard {
+    /* This is the color of the three panels */
     background-color: #efebde;
     height: 500px;
     padding: 16px;
@@ -74,6 +77,11 @@ body {
     text-decoration: underline;
 
 }
+
+/* This is for the tooltips that show up on the middle panel.
+ You can change stuff such as box width, the background color,
+ the opacity or the color of the text.
+ You can even change the radius of the border of the tooltip.*/
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 200px;
@@ -85,7 +93,6 @@ body {
     padding: 5px 0;
     border-radius: 6px;
     border: 1px solid grey;
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
 }
