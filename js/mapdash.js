@@ -252,6 +252,9 @@ function statisticCallback(results){
         // otherwise we add the altitude and azimuth to the feature's properties
         ft.setProperty('altitude', v.Altitude);
         ft.setProperty('azimuth', v.Azimuth);
+
+        // WHEN ALL SCHOOL IMAGES ARE READY, UNCOMMENT THIS LINE
+        //ft.setProperty('imgURL', v.ImageURL);
     }
 }
 
@@ -260,7 +263,6 @@ function setHandlers() {
     map.data.addListener('click', markerHandler);
 
     function markerHandler(event) {
-        console.log("hi")
         var ft = event.feature;
         /* See focusSchool() below to see what this does. */
         focusSchool(ft);
@@ -359,7 +361,7 @@ function focusSchool(ft) {
         document.getElementById('tilt').innerText = ft.getProperty('altitude');
     }
     function setSchoolImg(nodeId) {
-        document.getElementById('school-img').src = "img/school-01.jpg";
+        document.getElementById('school-img').src = ft.getProperty("imgURL");
     }
 }
 
