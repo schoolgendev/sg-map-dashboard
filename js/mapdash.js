@@ -254,7 +254,7 @@ function statisticCallback(results){
         ft.setProperty('azimuth', v.Azimuth);
 
         // WHEN ALL SCHOOL IMAGES ARE READY, UNCOMMENT THIS LINE
-        ft.setProperty('imgURL', v.ImageURL);
+        ft.setProperty('imgURL', v.imgURL);
     }
 }
 
