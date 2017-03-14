@@ -8,7 +8,7 @@ ID,Name,Azimuth,Altitude,imgURL
 1665,Bayswater Primary School - 6 kw,2,20,http://schoolgen.co.nz/img/schools/bayswater/bayswater.07.jpg
 1696,Belmont Intermediate,0,15,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
 1685,Belmont Primary,330,30,http://schoolgen.co.nz/img/schools/belmont/belmont-01.jpg
-1682,Birkdale Intermediate- 4kW,330,15,http://schoolgen.co.nz/img/schools/birkdale/birkdale-01.jpg
+1682,Birkdale Intermediate- 4kW,60,15,http://schoolgen.co.nz/img/schools/birkdale/birkdale-01.jpg
 1680,Brooklyn Primary - 6 kw,350,16,http://schoolgen.co.nz/img/schools/brooklyn-primary/b-2.jpg
 1679,Churton Park - 4 kw,12,33,http://schoolgen.co.nz/img/schools/churton/c-1.jpg
 162,Clifton Terrace Model School - 2 kw,20,15,http://schoolgen.co.nz/img/schools/clifton-terrace/clifton.04.jpg
@@ -18,7 +18,7 @@ ID,Name,Azimuth,Altitude,imgURL
 161,Douglas Park School - 2 kw,357,25,http://schoolgen.co.nz/img/schools/douglas-park/douglas_park_03.jpg
 156,Eastern Hutt School - 2 kw,20,25,http://schoolgen.co.nz/img/schools/eastern-hutt/eastern.hutt.01.jpg
 136,Fairfield College - 2 kW,0,20,http://schoolgen.co.nz/img/schools/fairfield/fairfield.01.jpg
-139,"Forest Lake Primary, Hamilton - 2 kw",45,20,http://schoolgen.co.nz/img/schools/forest-lake/forest.01.jpg
+139,Forest Lake Primary- 2 kw",45,20,http://schoolgen.co.nz/img/schools/forest-lake/forest.01.jpg
 1673,Geraldine Primary - 4 kw,15,7,http://schoolgen.co.nz/img/schools/geraldine/geraldine-02x.jpg
 135,Glendowie College - 2 kw,335,45,http://schoolgen.co.nz/img/schools/glendowie/glendowie.04.jpg
 129,Greenhithe Primary - 2 kw,0,27,http://schoolgen.co.nz/img/schools/greenhithe/greenhithe.01.jpg
@@ -50,48 +50,48 @@ ID,Name,Azimuth,Altitude,imgURL
 1666,Northland School - 4 kw,3,23,http://www.schoolgen.co.nz/img/schools/northland/northland-03.jpg
 1704,Otonga Primary - 30 kW,0,16,http://www.schoolgen.co.nz/img/schools/otonga/otonga-01.jpg
 1678,Owhiro Bay School - 4 kW,355,20,http://www.schoolgen.co.nz/img/schools/owhiro/o-1.jpg
-131,Pakuranga College - 2 kw,345,15,http://schoolgen.co.nz/img/schools/pakuranga/pakuranga_04.jpg
-1671,Paparangi School - 4 kw,0,10,http://schoolgen.co.nz/img/schools/paparangi/paparangi-01.jpg
-158,Paraparaumu College - 2 kw,0,20,http://schoolgen.co.nz/img/schools/paraparaumu/Paraparaumu.02.jpg
-163,Paremata School - 2 kw,0,25,http://schoolgen.co.nz/img/schools/paremata/paremata_05.jpg
-164,Plateau School - 2 kw,0,30,http://schoolgen.co.nz/img/schools/plateau/plateau.02.jpg
-168,Pukehou School - 2 kw,0,10,http://schoolgen.co.nz/img/schools/pukehou/Pukehou_01.JPG
-145,Raglan Area School - 2 kw,0,15,http://schoolgen.co.nz/img/schools/raglan/raglan.04.jpg
-155,"Raphael House, Steiner School - 2 kw",50,30,http://schoolgen.co.nz/img/schools/raphael-house/raphael.01.jpg
+131,Pakuranga College - 2 kW,345,15,http://schoolgen.co.nz/img/schools/pakuranga/pakuranga_04.jpg
+1671,Paparangi School - 4 kW,0,10,http://schoolgen.co.nz/img/schools/paparangi/paparangi-01.jpg
+158,Paraparaumu College - 2 kW,0,20,http://schoolgen.co.nz/img/schools/paraparaumu/Paraparaumu.02.jpg
+163,Paremata School - 2 kW,0,25,http://schoolgen.co.nz/img/schools/paremata/paremata_05.jpg
+164,Plateau School - 2 kW,0,30,http://schoolgen.co.nz/img/schools/plateau/plateau.02.jpg
+168,Pukehou School - 2 kW,0,10,http://schoolgen.co.nz/img/schools/pukehou/Pukehou_01.JPG
+145,Raglan Area School - 2 kW,0,15,http://schoolgen.co.nz/img/schools/raglan/raglan.04.jpg
+155,"Raphael House, Steiner School - 2 kW",50,30,http://schoolgen.co.nz/img/schools/raphael-house/raphael.01.jpg
 1698,Rawhiti Primary - 20 kW,3,33,http://schoolgen.co.nz/img/schools/rawhiti/rawhiti-01.jpg
 1683,Remuera Intermediate - 4kW,327,15,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
-1672,Ridgway School - 4 kw,19,20,http://schoolgen.co.nz/img/schools/ridgway/ridgway-12.jpg
-1690,Russell School,15,40,http://schoolgen.co.nz/img/schools/russell/russell-02.jpg
-132,Silverdale Primary - 2 kw,355,15,http://schoolgen.co.nz/img/schools/silverdale/silverdale_03.jpg
+1672,Ridgway School - 4 kW,19,20,http://schoolgen.co.nz/img/schools/ridgway/ridgway-12.jpg
+1690,Russell School - 12 kW,15,40,http://schoolgen.co.nz/img/schools/russell/russell-02.jpg
+132,Silverdale Primary - 2 kW,355,15,http://schoolgen.co.nz/img/schools/silverdale/silverdale_03.jpg
 207,St Anthony's Primary (A) - 2 kW,35,15,http://schoolgen.co.nz/img/schools/st-anthonys/stanthonys.01.jpg
 1655,St Anthony's Primary (B) - 2 kW,35,20,http://schoolgen.co.nz/img/schools/st-anthonys-2/st.ant2.04.jpg
-1691,"St Anthony’s School, Seatoun - 4 kW",15,TBC,http://schoolgen.co.nz/img/schools/st-anthonys-seatoun/06.jpg
+1691,St Anthony’s, Seatoun - 4 kW,15,TBC,http://schoolgen.co.nz/img/schools/st-anthonys-seatoun/06.jpg
 1695,St Benedicts - 5 kW,0,15,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
-208,St Johns Hill School - 2 kw,0,12,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
-1688,St Joseph's School - Temuka,15,25,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
-1703,St Leo Primary,21,24,http://schoolgen.co.nz/img/schools/st-leos/st-leos-01.jpg
-141,St Paul's Collegiate - 2 kw,0,10,http://schoolgen.co.nz/img/schools/st-pauls/stpauls.01.jpg
-142,St Peter Chanel Catholic School - 2 kw,0,20,http://schoolgen.co.nz/img/schools/st-peter-chanel/stpeters.01.jpg
-1654,Stanley Bay School - 4 kw,22,40,http://schoolgen.co.nz/img/schools/stanley-bay/Stanley_Bay_PV.jpg
-1644,Sumner School - 2 kw,45,20,http://schoolgen.co.nz/img/schools/sumner/sumner.01.jpg
-1694,Takapuna Normal Intermediate - 16.8 kw,48,3,http://schoolgen.co.nz/img/schools/takapuna/takapuna-15-4.jpg
-1657,Takapuna Normal Intermediate - 4 kw,45,15,http://schoolgen.co.nz/img/schools/takapuna/takapuna-15-4.jpg
-146,Taupo-nui-aTia College - 2 kw,5,45,http://schoolgen.co.nz/img/schools/tauponuiatia/taupo.03.jpg
-1661,Te Aro School - 4 kw,25,25,http://schoolgen.co.nz/img/schools/te-aro/te-aro-06.jpg
-147,Te Kowhai School - 2 kw,0,15,http://schoolgen.co.nz/img/schools/tekowhai/tekowhai.02.jpg
-1656,Te Kura O Waikaremoana - 2 kw,35,26,http://schoolgen.co.nz/img/schools/te-kura-o-waikaremoana/02.jpg
-1700,Te Rakaumanga - Huntly,338,16,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
-1660,Temuka Primary School - 4 kw,17,13,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
-1670,Thorndon Primary l - 4 kw,30,30,http://schoolgen.co.nz/img/schools/thorndon/thorndon-04.jpg
-130,Tirimoana Primary - 2 kw,5,15,http://schoolgen.co.nz/img/schools/tirimoana/tirimoana_08.jpg
-138,Vardon Primary - 2 kw,0,15,http://schoolgen.co.nz/img/schools/vardon/vardon.01.jpg
+208,St Johns Hill School - 2 kW,0,12,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
+1688,St Joseph's School - 4 kW,15,25,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
+1703,St Leo's Primary - 4 kW,21,24,http://schoolgen.co.nz/img/schools/st-leos/st-leos-01.jpg
+141,St Paul's Collegiate - 2 kW,0,10,http://schoolgen.co.nz/img/schools/st-pauls/stpauls.01.jpg
+142,St Peter Chanel Catholic School - 2 kW,0,20,http://schoolgen.co.nz/img/schools/st-peter-chanel/stpeters.01.jpg
+1654,Stanley Bay School - 4 kW,22,40,http://schoolgen.co.nz/img/schools/stanley-bay/Stanley_Bay_PV.jpg
+1644,Sumner School - 2 kW,45,20,http://schoolgen.co.nz/img/schools/sumner/sumner.01.jpg
+1694,Takapuna Normal Intermediate - 16.8 kW,48,3,http://schoolgen.co.nz/img/schools/takapuna/takapuna-15-4.jpg
+1657,Takapuna Normal Intermediate - 4 kW,45,15,http://schoolgen.co.nz/img/schools/takapuna/takapuna-15-4.jpg
+146,Taupo-nui-aTia College - 2 kW,5,45,http://schoolgen.co.nz/img/schools/tauponuiatia/taupo.03.jpg
+1661,Te Aro School - 4 kW,25,25,http://schoolgen.co.nz/img/schools/te-aro/te-aro-06.jpg
+147,Te Kowhai School - 2 kW,0,15,http://schoolgen.co.nz/img/schools/tekowhai/tekowhai.02.jpg
+1656,Te Kura o Waikaremoana - 2 kW,35,26,http://schoolgen.co.nz/img/schools/te-kura-o-waikaremoana/02.jpg
+1700,Te Kura o Rakaumanga - 5 kW,338,16,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
+1660,Temuka Primary School - 4 kW,17,13,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
+1670,Thorndon Primary - 4 kW,30,30,http://schoolgen.co.nz/img/schools/thorndon/thorndon-04.jpg
+130,Tirimoana Primary - 2 kW,5,15,http://schoolgen.co.nz/img/schools/tirimoana/tirimoana_08.jpg
+138,Vardon Primary - 2 kW,0,15,http://schoolgen.co.nz/img/schools/vardon/vardon.01.jpg
 1677,Vauxhall School - 15 kW,328,13,http://schoolgen.co.nz/img/schools/vauxhall/vauxhall-2.jpg
-157,Wadestown School - 2 kw,0,30,http://schoolgen.co.nz/img/schools/wadestown/wadestown_03.JPG
-209,Wanganui Intermediate - 2 kw,0,15,http://schoolgen.co.nz/img/schools/wanganui/wanganui.01.jpg
+157,Wadestown School - 2 kW,0,30,http://schoolgen.co.nz/img/schools/wadestown/wadestown_03.JPG
+209,Wanganui Intermediate - 2 kW,0,15,http://schoolgen.co.nz/img/schools/wanganui/wanganui.01.jpg
 1684,Wesley Intermediate,5,15,http://schoolgen.co.nz/img/schools/wesley/wesley-01.jpg
 1699,West Rolleston Primary - 20 kW,330,15,http://schoolgen.co.nz/img/schools/west-rolleston/west-roll-02.jpg
-127,Westlake Girls High School - 2 kw,16,15,http://schoolgen.co.nz/img/schools/westlake/westlake.06.jpg
+127,Westlake Girls High School - 2 kW,16,15,http://schoolgen.co.nz/img/schools/westlake/westlake.06.jpg
 1652,Whakatane Intermediate - 2 kW,22,35,http://schoolgen.co.nz/img/schools/whakatane/Whakatane-img-1.jpg
-1651,Whangarei Heads School - 2 kw,325,20,http://schoolgen.co.nz/img/schools/whangarei/whangarei.01.JPG
-1687,Winchester Rural School,0,15,http://schoolgen.co.nz/img/schools/winchester-rural/%20winchester-01.jpg
-1689,Woodbury School,0,13,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
+1651,Whangarei Heads School - 2 kW,325,20,http://schoolgen.co.nz/img/schools/whangarei/whangarei.01.JPG
+1687,Winchester Rural School - 4 kW,0,15,http://schoolgen.co.nz/img/schools/winchester-rural/%20winchester-01.jpg
+1689,Woodbury School - 4 kW,0,13,https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/ROSSA.jpg/1280px-ROSSA.jpg
