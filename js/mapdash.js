@@ -1,4 +1,4 @@
-var map;        // Google map object
+var map;        // Google map object variable
 var colors;     // Colours for the map markers x 100
 var schoolImgs; // pictures for different schools
 var centerNZ;   // Marker for center of nz
