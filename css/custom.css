@@ -3,8 +3,8 @@ body {
     height: 100%;
     max-width: 1000px;
     margin: 8px;
-    /* This is the background color for the entire page */
-    background-color: #fff6a9;
+    /* This is the background color for the entire page - try white, not yellow*/
+    background-color: #ffffff;
 }
 
 .column,
@@ -13,9 +13,9 @@ body {
 }
 
 
-/* controls the white panel binding the three boxes together */
+/* controls the white panel binding the three boxes together - was white, try orange */
 .row {
-    background-color: white;
+    background-color: #f68026;
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 25px;
