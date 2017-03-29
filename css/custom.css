@@ -25,8 +25,8 @@ body {
 .map-info,
 #school-info,
 #leaderboard {
-    /* This is the color of the three panels */
-    background-color: #efebde;
+    /* This is the color of the three panels - was #efebde (beige) try white */
+    background-color: #ffffff;
     height: 500px;
     padding: 16px;
 }
