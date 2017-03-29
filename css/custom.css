@@ -2,7 +2,8 @@
 body {
     height: 100%;
     max-width: 1000px;
-    margin: 8px;
+    /* This is very outer frame - try 0px - was 8px*/
+    margin: 0px;
     /* This is the background color for the entire page - try white, not yellow*/
     background-color: #ffffff;
 }
