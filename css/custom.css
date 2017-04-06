@@ -14,9 +14,9 @@ body {
 }
 
 
-/* controls the white panel binding the three boxes together - was white, try orange */
+/* controls the panel binding the three boxes together - was orange change back to white */
 .row {
-    background-color: #f68026;
+    background-color: #ffffff;
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 25px;
