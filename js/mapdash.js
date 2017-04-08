@@ -384,7 +384,7 @@ function getCircle(magnitude) {
 function ColorUtil() {
     this.getCircleColor =
         function getCircleColor(x) {
-            x = Math.trunc(x);
+            x = Math.floor(x);
             if (x === 0) {
                 return '#666666';
             }
@@ -395,7 +395,7 @@ function ColorUtil() {
         }
 
     this.getCircleOpacity = function getCircleOpacity(x) {
-        x = Math.trunc(x);
+        x = Math.floor(x);
         if (x < 1 || x > 100) {
             return 0.2;
         }
